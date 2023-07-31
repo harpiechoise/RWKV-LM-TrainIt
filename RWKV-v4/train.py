@@ -58,8 +58,8 @@ if EXPRESS_PILE_MODE:
 # 2) set RWKV_NUM_GPUS = '8' (or your #GPU), batch_size = single_gpu_batchsz * RWKV_NUM_GPUS,
 #    EPOCH_BEGIN = 1, LOAD_MODEL = True, and it will load 'trained-1.pth' and continue the training from it
 #
-os.environ['RWKV_NUM_GPUS'] = '1' # num of GPUs to use
-NUM_GPUS = 1
+os.environ['RWKV_NUM_GPUS'] = '2' # num of GPUs to use
+NUM_GPUS = 2
 #
 # 'bf16' (fast & stable)
 # 'fp16' (fast & will overflow after training a large model for very long. can be solved in the future)
