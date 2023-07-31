@@ -9,7 +9,7 @@ np.set_printoptions(precision=4, suppress=True, linewidth=200)
 
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
-os.environ['RWKV_FLOAT_MODE'] = 'bf16' # 'bf16' (stable) or 'fp16' (will overflow after training a large model for very long. can be solved in the future)
+os.environ['RWKV_FLOAT_MODE'] = 'fp16' # 'bf16' (stable) or 'fp16' (will overflow after training a large model for very long. can be solved in the future)
 os.environ['RWKV_RUN_DEVICE'] = 'cuda'
 RUN_DEVICE = os.environ['RWKV_RUN_DEVICE']
 

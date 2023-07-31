@@ -24,16 +24,16 @@ logging.basicConfig(format="%(asctime)s - %(levelname)s - %(name)s - %(message)s
 
 EXPRESS_PILE_MODE = False # True: express mode for fine-tuning a pile model // False: usual training
 
-EXPRESS_PILE_MODEL_NAME = 'RWKV-4-Pile-169M-20220807-8023'
-EXPRESS_PILE_MODEL_TYPE = 'RWKV-4-Pile-169M'
+# EXPRESS_PILE_MODEL_NAME = 'RWKV-4-Pile-169M-20220807-8023'
+# EXPRESS_PILE_MODEL_TYPE = 'RWKV-4-Pile-169M'
 # EXPRESS_PILE_MODEL_NAME = 'RWKV-4-Pile-430M-20220808-8066'
 # EXPRESS_PILE_MODEL_TYPE = 'RWKV-4-Pile-430M'
-# EXPRESS_PILE_MODEL_NAME = 'RWKV-4-Pile-1B5-20220903-8040'
-# EXPRESS_PILE_MODEL_TYPE = 'RWKV-4-Pile-1B5'
+EXPRESS_PILE_MODEL_NAME = 'RWKV-4-Pile-1B5-20220903-8040'
+EXPRESS_PILE_MODEL_TYPE = 'RWKV-4-Pile-1B5'
 
 ########################################################################################################
 
-datafile = "../data/enwik8" # your data
+datafile = "./data/enwik8" # your data
 datafile_encoding = 'utf-8' # 'utf-8' / 'utf-16le' / 'numpy' (for fine-tuning pile models) / 'binidx' (the Megatron-LM 'binidx' format)
 
 # datafile = 'my-gpt_seq_document'
@@ -59,13 +59,13 @@ if EXPRESS_PILE_MODE:
 #    EPOCH_BEGIN = 1, LOAD_MODEL = True, and it will load 'trained-1.pth' and continue the training from it
 #
 os.environ['RWKV_NUM_GPUS'] = '1' # num of GPUs to use
-
+NUM_GPUS = 1
 #
 # 'bf16' (fast & stable)
 # 'fp16' (fast & will overflow after training a large model for very long. can be solved in the future)
 # 'tf32' (decent speed & stable)
 # 'fp32' (!!!very slow!!! only for verification)
-os.environ['RWKV_FLOAT_MODE'] = 'bf16'
+os.environ['RWKV_FLOAT_MODE'] = 'fp16'
 
 os.environ['RWKV_DEEPSPEED'] = '1' # Use DeepSpeed? 0 = False, 1 = True
 
